@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Proyecto Podcast Educativo</title>
+        <meta name="description"
+            content="Página educativa de podcast: información, objetivos y evidencias" />
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="site-header transparent">
+            <div class="container header-inner">
+                <a class="brand" href="#"><img
+                        src="./assets/image/logo-size-1.png"
+                        alt="PodcastEdu Logo" class="logo"></a>
+                <button class="nav-toggle" aria-expanded="false"
+                    aria-controls="main-nav" aria-label="Abrir menú">
+                    <span class="hamburger"></span>
+                </button>
+                <nav id="main-nav" class="nav">
+                    <ul>
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#info">Proyecto</a></li>
+                        <li><a href="#objectives">Objetivos</a></li>
+                        <li><a href="#evidence">Evidencias</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="hero fullscreen">
+                <div class="hero-bg"></div>
+                <div class="container hero-center">
+                    <h1>Podcast Educativo</h1>
+                    <p class="lead">Un espacio para aprender, compartir y crear
+                        contenido educativo a través del podcasting.</p>
+                    <a class="btn primary" href="#info">Explorar</a>
+                </div>
+            </section>
+
+            <section id="info" class="features">
+                <div class="container">
+                    <h2 class="section-title">Sobre el proyecto</h2>
+                    <p class="section-sub">PodcastEdu es una iniciativa que
+                        busca fomentar la creatividad y la comunicación en
+                        entornos educativos mediante la producción de
+                        podcasts.</p>
+                    <div class="grid features-grid">
+                        <article class="feature reveal">
+                            <h3>Innovación</h3>
+                            <p>Un enfoque moderno para transmitir conocimiento
+                                de manera accesible y entretenida.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <h3>Colaboración</h3>
+                            <p>Un espacio donde estudiantes y docentes trabajan
+                                juntos en la creación de contenidos.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <h3>Aprendizaje activo</h3>
+                            <p>Impulsa habilidades de investigación,
+                                comunicación y edición digital.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="objectives" class="pricing">
+                <div class="container">
+                    <h2 class="section-title">Objetivos</h2>
+                    <div class="grid pricing-grid">
+                        <div class="card reveal">
+                            <h3>Fomentar la creatividad</h3>
+                            <p>Impulsar la producción de contenidos originales
+                                en formato podcast.</p>
+                        </div>
+                        <div class="card reveal">
+                            <h3>Promover la colaboración</h3>
+                            <p>Fortalecer el trabajo en equipo entre estudiantes
+                                y docentes.</p>
+                        </div>
+                        <div class="card reveal">
+                            <h3>Desarrollar habilidades</h3>
+                            <p>Incorporar destrezas comunicativas y tecnológicas
+                                en el proceso educativo.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="evidence" class="contact">
+                <div class="container">
+                    <h2 class="section-title">Evidencias</h2>
+                    <p class="section-sub">Aquí compartimos algunos de los
+                        podcasts y materiales producidos en el proyecto.</p>
+                    <div class="grid features-grid">
+                        <article class="feature reveal">
+                            <audio controls>
+                                <source src="./assets/mp3/podcast.mp3"
+                                    type="audio/mpeg">
+                                Tu navegador no soporta audio.
+                            </audio>
+                            <h3>Episodio 1</h3>
+                            <p>Introducción al proyecto educativo.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <audio controls>
+                                <source src="./assets/mp3/podcast.mp3"
+                                    type="audio/mpeg">
+                                Tu navegador no soporta audio.
+                            </audio>
+                            <h3>Episodio 2</h3>
+                            <p>Experiencias de los estudiantes en el proceso
+                                creativo.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <audio controls>
+                                <source src="./assets/mp3/podcast.mp3"
+                                    type="audio/mpeg">
+                                Tu navegador no soporta audio.
+                            </audio>
+                            <h3>Episodio 3</h3>
+                            <p>Impacto del podcast en el aprendizaje.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="evidence" class="fade-in">
+                <h2>Evidencias</h2>
+                <div class="evidence-gallery">
+                    <div class="evidence-item">
+                        <audio controls>
+                            <source src="./assets/mp3/podcast.mp3"
+                                type="audio/mpeg">
+                            Tu navegador no soporta audio.
+                        </audio>
+                        <p>Episodio 1: Introducción</p>
+                    </div>
+                    <div class="evidence-item">
+                        <audio controls>
+                            <source src="./assets/mp3/podcast.mp3"
+                                type="audio/mpeg">
+                            Tu navegador no soporta audio.
+                        </audio>
+                        <p>Episodio 2: Entrevista</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <h2 class="section-title">Contacto</h2>
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div class="form-row">
+                            <label for="name">Nombre</label>
+                            <input id="name" name="name" type="text" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Correo</label>
+                            <input id="email" name="email" type="email"
+                                required>
+                        </div>
+                        <div class="form-row">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" rows="4"
+                                required></textarea>
+                        </div>
+                        <button class="btn primary"
+                            type="submit">Enviar</button>
+                        <p id="form-status" aria-live="polite"
+                            class="form-status"></p>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <small>&copy; <span id="year"></span> PodcastEdu. Todos los
+                    derechos reservados.</small>
+            </div>
+        </footer>
+    </body>
+</html>
