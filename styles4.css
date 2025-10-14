@@ -1,0 +1,399 @@
+:root {
+  --bg: #0f1724;
+  --accent: #6c8cff;
+  --accent-2: #7ee7c6;
+  --muted: #9aa4b2;
+  --radius: 12px;
+  --blue-dark-1: #515fff;
+  --blue-dark-2: #4a3fff;
+  --color-dark-6: #060e24;
+  --fondo1: #1b2033;
+  --fondo2: #0b1024;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.container p {
+  text-align: justify;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scrolled {
+  /* background-color: #161617CC; */
+  background-color: var(--color-dark-6);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+ul li a:hover {
+  background: #ff9800;
+  color: #fff;
+  border-color: #ff9800;
+}
+
+/* Hero full screen */
+.hero.fullscreen {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("./assets/image/estudiantes.png") center/cover no-repeat;
+  z-index: -1;
+}
+.hero-center h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: white;
+}
+.lead {
+  color: white;
+  margin: 1rem 0;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black; /* Oscuro con transparencia */
+  opacity: 0.8;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2; /* Se pone por encima del overlay */
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #02101a;
+  transition: transform 0.2s;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.card-mock {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+}
+.card-header {
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+}
+
+/* Secciones */
+section {
+  padding: 4rem 0;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.section-sub {
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.icon {
+  width: 36px;
+  height: 36px;
+  fill: var(--accent);
+}
+
+.pricing {
+  padding: 2.5rem 0;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.feature,
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+.card.featured {
+  transform: scale(1.03);
+  border: 1px solid white;
+}
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.features {
+  padding: 2.5rem 0;
+}
+.features-grid,
+.pricing-grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.site-footer {
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--color-dark-6);
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0.2;
+  transform: translateY(12px);
+  transition: all 0.5s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+.contact {
+  padding: 2.5rem 0;
+}
+.contact-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 640px;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
+}
+input,
+textarea {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.6rem;
+  border-radius: 8px;
+  color: inherit;
+}
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(108, 140, 255, 0.12);
+  border-color: var(--accent);
+}
+.form-status {
+  color: var(--accent-2);
+  min-height: 1.2rem;
+}
+
+.site-footer {
+  padding: 1rem 0;
+  border-top: 1px solid white;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav {
+    display: none;
+  }
+  .nav.show {
+    display: block;
+  }
+  .nav-toggle {
+    display: inline-block;
+  }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* small animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Menú móvil */
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  ul {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    height: 100%;
+    width: 250px;
+    background: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  nav ul.active {
+    left: 0;
+  }
+
+  ul li a {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    background: transparent;
+    /* border: 1px solid #ff9800; */
+  }
+  /* ===== Responsive Header ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .hamburger span {
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animación del botón */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+  }
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+  }
+}
+
+#info {
+  background-color: #f3eeee;
+  color: var(--bg);
+}
+
+#evidence {
+  background-color: #f3eeee;
+  color: var(--bg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 900; /* debajo del menú */
+}
+
+/* Cuando el menú está activo */
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Aseguramos que el menú quede encima del overlay */
+nav ul.active {
+  z-index: 1000;
+}
