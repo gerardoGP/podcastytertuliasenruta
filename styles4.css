@@ -152,7 +152,7 @@ section {
 .section-sub {
   text-align: center;
   color: var(--muted);
-  margin-bottom: 2rem;
+  margin: 2rem;
 }
 .icon {
   width: 36px;
@@ -364,7 +364,7 @@ textarea:focus {
   }
 }
 
-#info {
+#objetivos {
   background-color: #f3eeee;
   color: var(--bg);
 }
