@@ -88,3 +88,78 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 });
+
+
+// ======================
+// CARRUSEL DE IMÁGENES
+// ======================
+const track = document.querySelector('.carousel-track');
+const images = document.querySelectorAll('.carousel-img');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentIndex = 0;
+let autoplayInterval;
+
+// Actualiza la posición del carrusel
+function updateCarousel() {
+  const width = images[0].clientWidth;
+  track.style.transform = `translateX(-${currentIndex * width}px)`;
+}
+
+// Avanza automáticamente cada 5 segundos
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel();
+  }, 5000); // cada 5 segundos
+}
+
+// Detiene el autoplay (por ejemplo, al interactuar)
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+}
+
+nextBtn.addEventListener('click', () => {
+  stopAutoplay();
+  currentIndex = (currentIndex + 1) % images.length;
+  updateCarousel();
+  startAutoplay();
+});
+
+prevBtn.addEventListener('click', () => {
+  stopAutoplay();
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  updateCarousel();
+  startAutoplay();
+});
+
+window.addEventListener('resize', updateCarousel);
+updateCarousel();
+startAutoplay();
+
+// ======================
+// MODAL DE IMAGEN AMPLIADA
+// ======================
+const modal = document.getElementById('image-modal');
+const modalImg = document.getElementById('modal-img');
+const closeModal = document.querySelector('.close');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'block';
+    modalImg.src = img.src;
+    stopAutoplay(); // pausa el autoplay cuando se abre el modal
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  modal.style.display = 'none';
+  startAutoplay(); // reanuda autoplay al cerrar
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    startAutoplay(); // reanuda autoplay al cerrar
+  }
+});
