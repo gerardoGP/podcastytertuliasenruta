@@ -163,3 +163,77 @@ modal.addEventListener('click', (e) => {
     startAutoplay(); // reanuda autoplay al cerrar
   }
 });
+
+// ======================
+// CARRUSEL DE IMÁGENES
+// ======================
+const trackA1 = document.querySelector('.carousel-track-a1');
+const imagesA1 = document.querySelectorAll('.carousel-img-a1');
+const prevBtnA1 = document.querySelector('.prev-a1');
+const nextBtnA1 = document.querySelector('.next-a1');
+let currentIndexA1 = 0;
+let autoplayIntervalA1;
+
+// Actualiza la posición del carrusel
+function updateCarouselA1() {
+  const width = imagesA1[0].clientWidth;
+  trackA1.style.transform = `translateX(-${currentIndexA1 * width}px)`;
+}
+
+// Avanza automáticamente cada 5 segundos
+function startAutoplayA1() {
+  autoplayIntervalA1 = setInterval(() => {
+    currentIndex = (currentIndexA1 + 1) % imagesA1.length;
+    updateCarousel();
+  }, 5000); // cada 5 segundos
+}
+
+// Detiene el autoplay (por ejemplo, al interactuar)
+function stopAutoplayA1() {
+  clearInterval(autoplayIntervalA1);
+}
+
+nextBtnA1.addEventListener('click', () => {
+  stopAutoplayA1();
+  currentIndexA1 = (currentIndexA1 + 1) % imagesA1.length;
+  updateCarouselA1();
+  startAutoplayA1();
+});
+
+prevBtnA1.addEventListener('click', () => {
+  stopAutoplayA1();
+  currentIndexA1 = (currentIndexA1 - 1 + imagesA1.length) % imagesA1.length;
+  updateCarouselA1();
+  startAutoplayA1();
+});
+
+window.addEventListener('resize', updateCarouselA1);
+updateCarouselA1();
+startAutoplayA1();
+
+// ======================
+// MODAL DE IMAGEN AMPLIADA
+// ======================
+const modalA1 = document.getElementById('image-modal-a1');
+const modalImgA1 = document.getElementById('modal-img-a1');
+const closeModalA1 = document.querySelector('.close-a1');
+
+imagesA1.forEach(img => {
+  img.addEventListener('click', () => {
+    modalA1.style.display = 'block';
+    modalImgA1.src = img.src;
+    stopAutoplayA1(); // pausa el autoplay cuando se abre el modal
+  });
+});
+
+closeModalA1.addEventListener('click', () => {
+  modalA1.style.display = 'none';
+  startAutoplayA1(); // reanuda autoplay al cerrar
+});
+
+modalA1.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modalA1.style.display = 'none';
+    startAutoplayA1(); // reanuda autoplay al cerrar
+  }
+});
